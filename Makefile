@@ -168,6 +168,10 @@ undeploy-addons:
 doc-chart: helm-docs helm helm-plugins
 	$(HELM_DOCS) charts/
 
+.PHONY: create-cappConfig
+create-cappConfig: ## Run the setup-cappConfig-deployer script
+	$(KUBECTL) apply -f $(shell pwd)/hack/manifests/cappconfig.yaml
+
 ##@ Dependencies
 
 ## Location to install dependencies to
